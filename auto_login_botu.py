@@ -10,7 +10,7 @@ import time
 
 now = datetime.now()
 x = now.strftime("%H:%M")
-y = environ['discord_webhook']
+y = 'https://discord.com/api/webhooks/858609018108248104/vsDMIMcqBdZ9mOi-o7orSEfNsp54VsQPVbUOQEwJv2qOx14RWccI8vTUsdvoLQitJWUM'
 
 def login_domain():
     driver = webdriver.Chrome()
