@@ -48,6 +48,7 @@ def testing():
     webhook = DiscordWebhook(url=y)
     embed = DiscordEmbed(title='Up and running', description=x, color='03b2f8')
     webhook.add_embed(embed)
+    response = webhook.execute()
 
 def login_ccc():
     driver = webdriver.Chrome()
@@ -111,8 +112,7 @@ schedule.every().friday.at("10:30").do(login_domain)
 
 schedule.every().saturday.at("09:00").do(login_verbal)
 
-schedule.every(10).minutes.do(testing)
-
+testing()
 start_browser()
 while True:
     schedule.run_pending()
