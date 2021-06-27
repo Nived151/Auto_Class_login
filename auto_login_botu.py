@@ -1,5 +1,6 @@
 from discord_webhook.webhook import DiscordEmbed
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from discord_webhook import DiscordWebhook
 from datetime import datetime
@@ -8,9 +9,15 @@ from os import environ
 import schedule
 import time
 
+
 now = datetime.now()
 x = now.strftime("%H:%M")
 y = environ['discord_webhook']
+chrome_options = Options()
+chrome_options.binary_location = GOOGLE_CHROME_BIN
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
 def login_domain():
     driver = webdriver.Chrome()
