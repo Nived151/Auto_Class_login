@@ -88,3 +88,6 @@ schedule.every(10).minutes.do(testing)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+if __name__ == "__main__":
+	auto_login_botu.run(debug=True)
