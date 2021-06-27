@@ -16,7 +16,7 @@ now = datetime.now()
 x = now.strftime("%H:%M")
 y = environ['discord_webhook']
 chrome_options = Options()
-chrome_options.binary_location = environ['GOOGLE_CHROME_BIN']
+#chrome_options.binary_location = environ['GOOGLE_CHROME_BIN']
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument("--disable-infobars")
@@ -30,7 +30,7 @@ chrome_options.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.geolocation": 1, 
     "profile.default_content_setting_values.notifications": 1 
   })
-driver = webdriver.Chrome(executable_path=environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
+#driver = webdriver.Chrome(executable_path=environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
 
 def login_domain():
     driver = webdriver.Chrome()
