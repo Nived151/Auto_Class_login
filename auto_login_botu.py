@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from discord_webhook import DiscordWebhook
 from datetime import datetime
+from os import path
 from os import environ
 import schedule
 import time
