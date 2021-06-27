@@ -1,8 +1,11 @@
-from discord_webhook.webhook import DiscordEmbed
-from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.chrome.options import Options
+from discord_webhook.webhook import DiscordEmbed
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 from discord_webhook import DiscordWebhook
+from selenium import webdriver
 from datetime import datetime
 from os import environ
 import schedule
@@ -16,6 +19,16 @@ chrome_options = Options()
 chrome_options.binary_location = environ['GOOGLE_CHROME_BIN']
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument("--disable-infobars")
+chrome_options.add_argument("start-maximized")
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--start-maximized")
+chrome_options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 1, 
+    "profile.default_content_setting_values.media_stream_camera": 1,
+    "profile.default_content_setting_values.geolocation": 1, 
+    "profile.default_content_setting_values.notifications": 1 
+  })
 driver = webdriver.Chrome(executable_path=environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
 
 def login_domain():
@@ -67,6 +80,13 @@ def login_resume():
     webhook.add_embed(embed)
     response = webhook.execute()
 
+def start_browser():
+
+	global driver
+	driver = webdriver.Chrome(chrome_options=chrome_options,service_log_path='NUL')
+
+	WebDriverWait(driver,10000).until(EC.visibility_of_element_located((By.TAG_NAME,'body')))
+
 schedule.every().monday.at("07:00").do(login_ccc)
 schedule.every().monday.at("09:00").do(login_verbal)
 schedule.every().monday.at("10:30").do(login_domain)
@@ -91,6 +111,7 @@ schedule.every().saturday.at("09:00").do(login_verbal)
 
 schedule.every(10).minutes.do(testing)
 
+start_browser()
 while True:
     schedule.run_pending()
     time.sleep(1)
