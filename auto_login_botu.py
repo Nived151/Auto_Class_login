@@ -22,6 +22,11 @@ def login_domain():
     driver.find_element_by_xpath('/html/body/div[3]/div[2]/div/section/div/div[2]/div/div[1]/div[2]/form/input[2]').click()
     driver.find_element_by_xpath('/html/body/div[4]/div/section/div/div[2]/div/a/div').click()
 
+def testing():
+    webhook = DiscordWebhook(url=y)
+    embed = DiscordEmbed(title='Up and running', description=x, color='03b2f8')
+    webhook.add_embed(embed)
+
 def login_ccc():
     driver = webdriver.Chrome()
     url = environ['ccc_link']
@@ -76,6 +81,8 @@ schedule.every().friday.at("09:00").do(login_resume)
 schedule.every().friday.at("10:30").do(login_domain)
 
 schedule.every().saturday.at("09:00").do(login_verbal)
+
+schedule.every(10).minutes.do(testing)
 
 while True:
     schedule.run_pending()
