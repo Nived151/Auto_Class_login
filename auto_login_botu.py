@@ -24,7 +24,6 @@ chrome_options.add_argument("start-maximized")
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--start-maximized")
 chrome_options.add_argument("disable-dev-shm-usage")
-chrome_options.addArguments("--no-sandbox")
 chrome_options.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.media_stream_mic": 1, 
     "profile.default_content_setting_values.media_stream_camera": 1,
