@@ -89,27 +89,27 @@ def start_browser():
 
 	WebDriverWait(driver,10000).until(EC.visibility_of_element_located((By.TAG_NAME,'body')))
 
-schedule.every().monday.at("07:00").do(login_ccc)
-schedule.every().monday.at("09:00").do(login_verbal)
-schedule.every().monday.at("10:30").do(login_domain)
+schedule.every().monday.at("12:30").do(login_ccc)
+schedule.every().monday.at("14:30").do(login_verbal)
+schedule.every().monday.at("16:00").do(login_domain)
 
-schedule.every().tuesday.at("07:00").do(login_ccc)
-schedule.every().tuesday.at("09:00").do(login_verbal)
-schedule.every().tuesday.at("10:30").do(login_domain)
+schedule.every().tuesday.at("12:30").do(login_ccc)
+schedule.every().tuesday.at("14:30").do(login_verbal)
+schedule.every().tuesday.at("16:00").do(login_domain)
 
-schedule.every().wednesday.at("07:00").do(login_ccc)
-schedule.every().wednesday.at("09:00").do(login_verbal)
-schedule.every().wednesday.at("10:30").do(login_domain)
+schedule.every().wednesday.at("12:30").do(login_ccc)
+schedule.every().wednesday.at("14:30").do(login_verbal)
+schedule.every().wednesday.at("16:00").do(login_domain)
 
-schedule.every().thursday.at("07:00").do(login_ccc)
-schedule.every().thursday.at("09:00").do(login_resume)
-schedule.every().thursday.at("10:30").do(login_domain)
+schedule.every().thursday.at("12:30").do(login_ccc)
+schedule.every().thursday.at("14:30").do(login_resume)
+schedule.every().thursday.at("16:00").do(login_domain)
 
-schedule.every().friday.at("07:00").do(login_ccc)
-schedule.every().friday.at("09:00").do(login_resume)
-schedule.every().friday.at("10:30").do(login_domain)
+schedule.every().friday.at("12:30").do(login_ccc)
+schedule.every().friday.at("14:30").do(login_resume)
+schedule.every().friday.at("16:00").do(login_domain)
 
-schedule.every().saturday.at("09:00").do(login_verbal)
+schedule.every().saturday.at("12:30").do(login_verbal)
 
 testing()
 start_browser()
